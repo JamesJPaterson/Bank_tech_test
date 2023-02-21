@@ -16,6 +16,7 @@ class Account
     def deposit(amount)
         @balance += amount
         @transactions << { date: Time.now, credit: amount, debit: nil, balance: @balance }
+        return @transactions
     end
 
     def withdraw(amount)
@@ -25,6 +26,7 @@ class Account
 
         @balance -= amount
         @transactions << { date: Time.now, credit: nil, debit: amount, balance: @balance }
+        return @transactions
     end
 end
 
